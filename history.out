@@ -1,0 +1,58 @@
+    1  history
+    2  command -v useradd groupadd chage setcap getcap visudo date passwd cat chown
+    3  getent passwd 1234
+    4  getent group students
+    5  stat -c '%a %U:%G %n' /etc/gshadow /etc/shadow
+    6  sudo -V | head -n 1
+    7  groupadd students
+    8  useradd -m -u 1234 -G students -s /bin/bash user1
+    9  passwd user1
+   10  chage -M 90 user1
+   11  id user1
+   12  chage -l user1
+   13  sudo -u user1 cat /etc/gshadow
+   14  cp /usr/bin/cat /home/user1/cat
+   15  chown root:students /home/user1/cat
+   16  chmod 4750 /home/user1/cat
+   17  sudo -u user1 /home/user1/cat /etc/gshadow
+   18  sudo -u user1 touch /home/user1/file.txt
+   19  sudo -u user1 chown root /home/user1/file.txt
+   20  cp /usr/bin/chown /home/user1/chown
+   21  chown root:students /home/user1/chown
+   22  chmod 750 /home/user1/chown
+   23  setcap cap_chown=ep /home/user1/chown
+   24  getcap /home/user1/chown
+   25  sudo -u user1 /home/user1/chown root /home/user1/file.txt
+   26  ls -l /home/user1/file.txt
+   27  visudo
+   28  visudo -c
+   29  sudo -u user1 sudo /usr/bin/date -s '+1 minute'
+   30  sudo -u user1 sudo /usr/bin/date -s '-1 minute'
+   31  history -a
+   32  systemctl reboot
+   33  id user1
+   34  chage -l user1
+   35  stat -c '%a %U:%G %n' /home/user1 /home/user1/cat /home/user1/chown
+   36  getcap /home/user1/chown
+   37  visudo -c
+   38  sudo -l -U user1
+   39  ps -eo pid,ruid,euid,args | awk 'NR == 1 || ($2 >= 1000 && $2 <= 60000 && $3 == 0)'
+   40  ps -eo pid,ruid,euid,args | awk 'NR == 1 || ($2 >= 1000 && $2 <= 60000 && $3 == 0)' > ~/ps.out
+   41  cat ~/ps.out
+   42  find / -type f -perm -4000 -print 2>/dev/null > ~/find.out
+   43  stat /home/user1 > ~/stat.out
+   44  stat /home/user1/cat >> ~/stat.out
+   45  stat /home/user1/chown >> ~/stat.out
+   46  getcap /home/user1/chown > ~/getcap.out
+   47  cp /etc/passwd ~/passwd
+   48  cp /etc/shadow ~/shadow
+   49  chmod 600 ~/shadow
+   50  cp /etc/group ~/group
+   51  cp /etc/sudoers ~/sudoers
+   52  setfont -C /dev/tty1 -d LatArCyrHeb-16
+   53  history -a
+   54  clear
+   55  printf 'М265917\n'
+   56  id user1
+   57  getcap /home/user1/chown
+   58  history > ~/history.out
